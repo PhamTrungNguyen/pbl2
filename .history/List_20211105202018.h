@@ -23,7 +23,7 @@ public:
     List()
     {
         this->pHead = this->pTail = NULL;
-        this->size = 0;
+        this->_size = 0;
     }
     ~List()
     {

@@ -1,0 +1,10 @@
+Ho Ten: Ho Ky Huy
+MSSV: 2002
+CMND: 2018
+Dia Chi: 167 au co
+Gioi tinh: nam
+NgaySinh: 22/08/2002
+SDT: 0934810316
+He so luong: 1.5
+Luong can bang: 200000
+ => 300000
