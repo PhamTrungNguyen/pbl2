@@ -7,7 +7,8 @@ void NVThucTap::InPut()
 void NVThucTap::OutPut()
 {
     NhanVien::OutPut();
-    NhanVien::FileOut << "Thoi gian kinh nghiem: " << ThoiGianKinhNghiem;
+    NhanVien::FileOut << "Thoi gian kinh nghiem: " << ThoiGianKinhNghiem << endl;
+    NhanVien::FileOut << " => " << TinhLuong();
 }
 float NVThucTap::TinhLuong()
 {
