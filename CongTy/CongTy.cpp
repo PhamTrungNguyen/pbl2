@@ -19,7 +19,7 @@ void CongTy::InPut()
             x->InPut();
             list.push_back(x);
         }
-        /*   else if (a == '3')
+        else if (a == '3')
         {
             x = new NVSanXuat;
             x->InPut();
@@ -30,7 +30,7 @@ void CongTy::InPut()
             x = new NVThucTap;
             x->InPut();
             list.push_back(x);
-        } */
+        }
     }
 }
 void CongTy::OutPut()
@@ -41,4 +41,13 @@ void CongTy::OutPut()
 
         list[i]->OutPut();
     }
+}
+float CongTy::TinhLuong()
+{
+    float Luong = 0;
+    for (int i = 0; i < list.Size(); i++)
+    {
+        Luong += list[i]->TinhLuong();
+    }
+    return Luong;
 }
