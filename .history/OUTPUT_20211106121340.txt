@@ -1,0 +1,10 @@
+Ho Ten: Ho Ky Huy
+MSSV: 002
+CMND: 018
+Dia Chi: 67 au co
+Gioi tinh: am
+NgaySinh: 2/08/2002
+SDT: 0934810316
+He so luong: 0.5
+Luong can bang: 200000
+ => 100000
