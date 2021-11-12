@@ -50,4 +50,8 @@ float CongTy::TinhLuong()
         Luong += list[i]->TinhLuong();
     }
     return Luong;
+<<<<<<< HEAD:.history/CongTy _20211106121849.cpp
 }
+=======
+}
+>>>>>>> ac7b89e2210df5145628f13dfbc0323c429f674f:CongTy/CongTy.cpp

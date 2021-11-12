@@ -54,6 +54,37 @@ public:
         this->pTail = node;
         this->size++;
     }
+    void add(int index, H x)
+    {
+        NODE* node = new NODE(x);
+        if (size == 0)
+        {
+            pHead = pTail = node;
+        }
+        else if (index == 0)
+        {
+            node->pNext = pHead;
+            pHead->pPrev = node;
+            pHead = node;
+        }
+        else if (index == size)
+        {
+            push_back(x);
+        }
+        else
+        {
+            NODE* temp = pHead;
+            for (int i = 0; i < index - 1; i++)
+            {
+                temp = temp->pNext;
+            }
+            node->pNext = temp->pNext;
+            node->pPrev = temp;
+            temp->pNext->pPrev = node;
+            temp->pNext = node;
+        }
+        size++;
+    }
     int Size()
     {
         return this->size;

@@ -1,11 +1,12 @@
 #pragma once
 #include "NhanVien.h"
-class NVSanXuat : public NhanVien
+class NVThucTap :public NhanVien
 {
 private:
-    int Product_number;
-
+    int Experience_time;
 public:
+    void DocFile(fstream&);
+    void XuatFile(fstream&);
     void InPut();
     void OutPut();
     int TinhLuong();

@@ -8,21 +8,17 @@ class NhanVien
 protected:
     string Name;
     string MSNV;
-    string CMND;
+    int CMND;
     string Address;
     string Gender;
     string Date;
     double SDT;
-
 public:
-    static ifstream FileIn;
-    static ofstream FileOut;
-
-public:
+    virtual void DocFile(fstream&);
+    virtual void XuatFile(fstream&);
     virtual void InPut();
     virtual void OutPut();
     virtual int TinhLuong();
     string Get_MSNV();
-
+    void Set_SDT(double);
 };
-
