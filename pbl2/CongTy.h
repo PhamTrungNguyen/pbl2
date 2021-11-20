@@ -1,9 +1,12 @@
 #pragma once
+#include <Windows.h>
 #include "NVQuanLy.h"
 #include "NVSanXuat.h"
 #include "NVCongNhat.h"
 #include "NVThucTap.h"
 #include "List.h"
+//dt
+#include "NhanVien.h"
 class CongTy
 {
 private:
@@ -16,10 +19,10 @@ public:
 	int TinhLuong();
 	void ThemVaoViTriBatKy(int);
 	int IndexOf(string);
-	void Update(string);
-	void Delete();
+	void Update(string&);
+	void Delete(string);
 	void addNV();
 	void SapXepNVTheoLuong();
 	void TimNVTheoMSNV(fstream&);
-
+	void NVDT();
 };
