@@ -5,7 +5,6 @@ char w;
 string LC;
 void CongTy::NVDT()
 {
-	cout << "123";
 	DaoTao* d1 = new DaoTao("Cap bac A");
 	DaoTao* d2 = new DaoTao("Cap bac B");
 	DaoTao* d3 = new DaoTao("Cap bac C");
@@ -36,10 +35,10 @@ void CongTy::NVDT()
 		cin >> d;
 		fflush(stdin);
 		if (check == true)
-		{	
+		{
 			if (d == 1)
 			{
-				if (d1->AddNhanVien(list[i]) == 0) cout<<"Nhan vien da ton tai!!!\n";
+				if (d1->AddNhanVien(list[i]) == 0) cout << "Nhan vien da ton tai!!!\n";
 				else cout << "Nhan vien da duoc them!!!\n";
 			}
 			else if (d == 2)
@@ -60,6 +59,7 @@ void CongTy::NVDT()
 			//*d1->OutPut();
 			//list[2]->OutPut();
 		}
+		else if (check != true) cout << "Nhan Vien khong ton tai!!!\n";
 		int j;
 		cout << "--Tiep tuc them (1-co/2-khong):";
 		rewind(stdin);
