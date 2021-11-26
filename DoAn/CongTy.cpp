@@ -1,8 +1,86 @@
 ﻿#include "CongTy.h"
+#include "ChiNhanh.h"
 #include <Windows.h>
 int lc;
 char w;
 string LC;
+void CongTy::chinhanh()
+{
+		ChiNhanh d1("Chi Nhanh A", "Da Nang");
+		ChiNhanh d2("Chi Nhanh B", "Ho Chi Minh");
+		while (true)
+		{
+		cout << "--Chon chi nhanh ban muon them nhan vien."<<endl;
+		cout << "1.Chi nhanh A" << endl;
+		cout << "2.Chi nhanh B" << endl;
+		cout << "===>";
+		int o;
+		cin >> o;
+		int p;
+		cout << "Nhap so luong nhan vien vien ban muon them vao chi nhanh:";
+		cin >> p;
+		for(int j=0;j<p;j++)
+		{
+		string a;
+		bool check = false;
+		cout << "\--Moi nhap MS nhan vien de them vao chi nhanh: ";
+		rewind(stdin);	
+		getline(cin, a);
+		fflush(stdin);
+		int i = 0;
+		for (i = 0; i < list.Size(); i++) {
+			if (list[i]->Get_MSNV() == a) {
+				check = true;
+				break;
+			}
+		}
+		if (check == true)
+		{
+			if (o == 1)
+			{
+					if (d1.AddNhanVien(list[i]) == 0) cout << "Nhan vien da ton tai!!!\n";
+					else cout << "Nhan vien da duoc them!!!\n";
+			}
+			else if (o == 2)
+			{
+				
+				int s = 0;
+				if (( d1.checkid(list[i])) == 0)
+				{
+					cout << "Nhan vien da ton tai o chi nhanh khac" << endl;
+					s = 1;
+				}
+				if (s != 1)
+				{
+					if (d2.AddNhanVien(list[i]) == 0) cout << "Nhan vien da ton tai!!!\n";
+					else cout << "Nhan vien da duoc them!!!\n";
+				}
+				
+			}
+			else if (o == 3) cout << "Du lieu nhap khong dung !!!" << endl;
+		}
+		}
+		cout << "Ban co muon tiep tuc them nhan vien vao chi nhanh(1-co/2-khong)";
+		int g;
+		cin >> g;
+		if (g != 1) break;
+		}
+		while(true)
+		{ 
+		cout << "Chon chi nhanh de xuat ra danh sach nhan vien"<<endl;
+		cout << "1.Chi nhanh A" << endl;
+		cout << "2.Chi nhanh B" << endl;
+		cout << "===>";
+		int l;
+		cin >> l;
+		if(l==1)	cout << d1;
+		else if (l == 2)	cout << d2;
+		cout << "Ban co muon tiep tuc xuat(1-co/2-khong)";
+		int t;
+		cin >> t;
+		if (t != 1) break;
+		}
+}
 void CongTy::NVDT()
 {
 	DaoTao* d1 = new DaoTao("Cap bac A");
@@ -79,7 +157,7 @@ void CongTy::NVDT()
 		cout << "--Moi ban nhap lua chon:\n";
 		Sleep(700);
 		int y;
-		
+
 		cout << "->";
 		cin >> y;
 		if (y == 1) cout << *d1;
@@ -122,6 +200,7 @@ void MENU()
 	cout << "\n               6. Update nhan vien theo MSNV                                          \n";
 	cout << "\n               7. Delete va xuat ra file OUTPUT5.txt                                  \n";
 	cout << "\n               8. Dao Tao                                                             \n";
+	cout << "\n               9. Chi Nhanh                                                           \n";
 	cout << "\n               9. Thoat                                                               \n";
 	cout << " ===========================================================================================================================\n";
 }
@@ -589,6 +668,13 @@ int main()
 				}
 				case 9:
 				{
+					File.open("INPUT.txt", ios_base::in);
+					x.DocFile(File);
+					File.close();
+					x.chinhanh();
+				}
+				case 10:
+				{
 					cout << "\n----------------THE END--------------------\n";
 					break;
 				}
@@ -599,7 +685,7 @@ int main()
 					break;
 				}
 				}
-				if (lc <= 9)
+				if (lc <= 10)
 					break;
 			}
 		} while (lc <= 7);

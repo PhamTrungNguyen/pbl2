@@ -25,4 +25,7 @@ public:
 	void SapXepNVTheoLuong();
 	void TimNVTheoMSNV(fstream&);
 	void NVDT();
+	//cn
+	void chinhanh();
+	bool check();
 };

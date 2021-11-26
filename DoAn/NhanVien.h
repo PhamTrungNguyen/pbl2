@@ -38,4 +38,9 @@ public:
     string GetName();
     void AddDaoTao(DaoTao*);
     friend class DaoTao;
+    //cn
+    int GetCMND();
+    string GetAddress();
+    double GetSDT();
+    
 };

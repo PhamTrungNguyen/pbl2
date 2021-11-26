@@ -1,17 +1,17 @@
-#pragma once 
+#pragma once
 #include <iostream>
 using namespace std;
-template <class H>
+template <class T>
 class List
 {
 private:
-    int size;
+    int _size;
     struct NODE
     {
-        H data;
+        T data;
         NODE* pNext;
         NODE* pPrev;
-        NODE(H data)
+        NODE(T data)
         {
             this->data = data;
             this->pNext = this->pPrev = NULL;
@@ -24,40 +24,53 @@ public:
     List()
     {
         this->pHead = this->pTail = NULL;
-        this->size = 0;
+        this->_size = 0;
     }
     ~List()
     {
-        for (int i = 0; i < this->size - 2; i++)
+        for (int i = 0; i < this->_size - 2; i++)
         {
             pHead = pHead->pNext;
             delete pHead->pPrev;
         }
         delete pHead;
     }
-    NODE* contructorNode(H data)
+    NODE* contructorNode(T data)
     {
         NODE* node = new NODE(data);
         return node;
     }
-    void push_back(H data)
+    void push_back(T data)
     {
         NODE* node = contructorNode(data);
         if (pHead == NULL)
         {
             this->pHead = this->pTail = node;
-            this->size++;
+            this->_size++;
             return;
         }
         this->pTail->pNext = node;
         node->pPrev = this->pTail;
         this->pTail = node;
-        this->size++;
+        this->_size++;
     }
-    void add(int index, H x)
+    int Size()
+    {
+        return this->_size;
+    }
+    T& operator[](int index)
+    {
+        NODE* node = this->pHead;
+        for (int i = 0; i < index; i++)
+        {
+            node = node->pNext;
+        }
+        return node->data;
+    }
+    void add(int index, T x)
     {
         NODE* node = new NODE(x);
-        if (size == 0)
+        if (_size == 0)
         {
             pHead = pTail = node;
         }
@@ -67,7 +80,7 @@ public:
             pHead->pPrev = node;
             pHead = node;
         }
-        else if (index == size)
+        else if (index == _size)
         {
             push_back(x);
         }
@@ -83,30 +96,17 @@ public:
             temp->pNext->pPrev = node;
             temp->pNext = node;
         }
-        size++;
-    }
-    int Size()
-    {
-        return this->size;
-    }
-    H& operator[](int index)
-    {
-        NODE* node = this->pHead;
-        for (int i = 0; i < index; i++)
-        {
-            node = node->pNext;
-        }
-        return node->data;
+        _size++;
     }
     void erase(int index)
     {
-        if (index < 0 || index >= this->size)
+        if (index < 0 || index >= this->_size)
             return;
-        else if (this->size == 0)
+        else if (this->_size == 0)
         {
             return;
         }
-        else if (this->size == 1)
+        else if (this->_size == 1)
         {
             delete pHead;
             pHead = pTail = NULL;
@@ -118,7 +118,7 @@ public:
             delete pHead;
             pHead = node;
         }
-        else if (index == this->size - 1)
+        else if (index == this->_size - 1)
         {
             NODE* node = pTail->pPrev;
             pTail->pPrev->pNext = NULL;
@@ -136,6 +136,33 @@ public:
             node->pNext->pPrev = node->pPrev;
             delete node;
         }
-        this->size--;
+        this->_size--;
+    }
+    void clear()
+    {
+        if (_size == 0)
+            return;
+        if (_size == 1)
+        {
+            delete pHead;
+            pHead = pTail = NULL;
+            _size = 0;
+            return;
+        }
+        NODE* tempPrev = pHead;
+        NODE* tempNext = pHead->pNext;
+        for (int i = 0; i < _size - 1; i++)
+        {
+            delete tempPrev;
+            tempPrev = tempNext;
+            tempNext = tempNext->pNext;
+        }
+        delete tempPrev;
+        _size = 0;
+    }
+    void erase(int begin, int end)
+    {
+        for (int i = begin; i <= end; i++)
+            erase(begin);
     }
 };

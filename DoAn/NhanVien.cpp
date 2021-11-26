@@ -116,3 +116,17 @@ ostream& operator<<(ostream& o, NhanVien& d)
     }
     return o;
 }
+
+//cn
+int NhanVien::GetCMND()
+{
+    return this->CMND;
+}
+string NhanVien::GetAddress()
+{
+    return this->Address;
+}
+double NhanVien::GetSDT()
+{
+    return this->SDT;
+}
