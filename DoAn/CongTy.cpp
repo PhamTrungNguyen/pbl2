@@ -10,9 +10,11 @@ void CongTy::chinhanh()
 	ChiNhanh d2("Chi Nhanh B", "Ho Chi Minh");
 	while (true)
 	{
+		cout << "-----------------------\n";
+		cout << "| 1.Chi nhanh Da Nang |" << endl;
+		cout << "| 2.Chi nhanh Ha Noi  |" << endl;
+		cout << "-----------------------\n";
 		cout << "--Chon chi nhanh ban muon them nhan vien." << endl;
-		cout << "1.Chi nhanh A" << endl;
-		cout << "2.Chi nhanh B" << endl;
 		cout << "===>";
 		int o;
 		cin >> o;
@@ -60,7 +62,7 @@ void CongTy::chinhanh()
 				else if (o == 3) cout << "Du lieu nhap khong dung !!!" << endl;
 			}
 		}
-		cout << "Ban co muon tiep tuc them nhan vien vao chi nhanh(1-co/2-khong)";
+		cout << "Ban co muon tiep tuc them nhan vien vao chi nhanh(1-co/2-khong):";
 		int g;
 		cin >> g;
 		if (g != 1) break;
@@ -88,18 +90,24 @@ void CongTy::NVDT()
 	DaoTao* d3 = new DaoTao("Cap bac C");
 	while (true)
 	{
-		cout << "1.Chon nhan vien di dao tao\n";
-		cout << "2.Xuat ra danh sach tao dao\n";
-		cout << "3.xuat ra bang dao tao\n";
+		cout << "=============================\n";
+		cout << "|1.Chon nhan vien di dao tao|\n";
+		cout << "*---------------------------*\n";
+		cout << "|2.Xuat ra danh sach tao dao|\n";
+		cout << "*---------------------------*\n";
+		cout << "|3.xuat ra bang dao tao     |\n";
+		cout << "=============================\n";
 		cout << "Moi ban nhap lua chon:";
 		int u;
 		cin >> u;
 		if (u == 1)
 		{
-			cout << "++Lop dao tao\n";
-			cout << "1.Dao tao cap bac A\n";
-			cout << "2.Dao tao cap bac B\n";
-			cout << "3.Dao tao cap bac C\n";
+			cout << "------------------------\n";
+			cout << "|STT|   Lop dao tao    |\n";
+			cout << "| 1 | Dao tao cap bac A|\n";
+			cout << "| 2 | Dao tao cap bac B|\n";
+			cout << "| 3 | Dao tao cap bac C|\n";
+			cout << "------------------------\n";
 			cout << "--Nhap so luong nhan vien muon di dao tao:";
 			int r;
 
@@ -157,11 +165,13 @@ void CongTy::NVDT()
 		}
 		else if (u == 2)
 		{
-			cout << "++Danh sach dao tao\n";
-			cout << "1.Xuat ra ds nhan vien dao tap cap bac A.\n";
-			cout << "2.Xuat ra ds nhan vien dao tap cap bac B.\n";
-			cout << "3.Xuat ra ds nhan vien dao tap cap bac C.\n";
-			cout << "4.Dung.\n";
+			cout << "---------------------------------------------\n";
+			cout << "|STT|           *Danh sach dao tao*         |\n";
+			cout << "| 1 | Xuat ra ds nhan vien dao tap cap bac A|\n";
+			cout << "| 2 | Xuat ra ds nhan vien dao tap cap bac B|\n";
+			cout << "| 3 | Xuat ra ds nhan vien dao tap cap bac C|\n";
+			cout << "| 4 | Dung                                  |\n";
+			cout << "---------------------------------------------\n";
 			while (true)
 			{
 				cout << "--Moi ban nhap lua chon:\n";
@@ -187,7 +197,9 @@ void CongTy::NVDT()
 				cout << "--Nhap ma so nhan vien ban muon xuat ra bang dao tao :";
 				int ms;
 				cin >> ms;
-				cout << list[ms - 1]->GetName() << ":" << *list[ms - 1];
+				cout << "---------------------------------------------\n";
+				cout << "*" << list[ms - 1]->GetName() << ":" << *list[ms - 1]<<"";
+				cout << "---------------------------------------------\n";
 				Sleep(700);
 				cout << "Tiep tuc xuat (1-co/2-khong):";
 				int k;

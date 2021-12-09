@@ -26,13 +26,17 @@ string DaoTao::GetBDT()
 }
 ostream& operator<<(ostream& o, DaoTao& d)
 {
-    if (d.nhanvien.Size() == 0)
-        o << d.CoSo << " K co nhan vien nao.\n";
+    if (d.nhanvien.Size() == 0) {
+        o << d.CoSo << " Khong co nhan vien nao.\n";
+    }
     else
     {
+          cout << "------------------------\n";
+          cout << "|MSNV \tTen nhan vien  |\n";
         for (int i = 0;i < d.nhanvien.Size();i++)
         {
-            o << "(" << d.nhanvien[i]->Get_MSNV() << "," << d.nhanvien[i]->GetName() << ")" << " ";
+            o  <<"|" << d.nhanvien[i]->Get_MSNV() << "\t" << d.nhanvien[i]->GetName() << "  |\n";
+            cout << "------------------------\n";
         }
         o << endl;
     }
