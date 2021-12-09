@@ -3,8 +3,8 @@ void NhanVien::DocFile(fstream& File)
 {
     getline(File, this->Name, ',');
     File.seekg(1, SEEK_CUR);
-    getline(File, this->MSNV, ',');
-    File.seekg(1, SEEK_CUR);
+    File >> this->MSNV;
+    File.seekg(2, SEEK_CUR);
     File >> this->CMND;
     File.seekg(2, SEEK_CUR);
     getline(File, this->Address, ',');
@@ -59,7 +59,7 @@ int NhanVien::TinhLuong()
 {
     return 0;
 }
-string NhanVien::Get_MSNV()
+double NhanVien::Get_MSNV()
 {
     return this->MSNV;
 }
@@ -67,7 +67,7 @@ void NhanVien::Set_Name(string name)
 {
     this->Name = name;
 }
-void NhanVien::Set_MSNV(string msnv)
+void NhanVien::Set_MSNV(double msnv)
 {
     this->MSNV = msnv;
 }
@@ -108,7 +108,7 @@ ostream& operator<<(ostream& o, NhanVien& d)
     {
 
 
-        for (int i = 0;i < d.daotao.Size();i++)
+        for (int i = 0; i < d.daotao.Size(); i++)
         {
             o << d.daotao[i]->GetCoSo() << " ";
         }

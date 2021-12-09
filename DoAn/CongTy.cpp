@@ -6,11 +6,11 @@ char w;
 string LC;
 void CongTy::chinhanh()
 {
-		ChiNhanh d1("Chi Nhanh A", "Da Nang");
-		ChiNhanh d2("Chi Nhanh B", "Ho Chi Minh");
-		while (true)
-		{
-		cout << "--Chon chi nhanh ban muon them nhan vien."<<endl;
+	ChiNhanh d1("Chi Nhanh A", "Da Nang");
+	ChiNhanh d2("Chi Nhanh B", "Ho Chi Minh");
+	while (true)
+	{
+		cout << "--Chon chi nhanh ban muon them nhan vien." << endl;
 		cout << "1.Chi nhanh A" << endl;
 		cout << "2.Chi nhanh B" << endl;
 		cout << "===>";
@@ -19,190 +19,225 @@ void CongTy::chinhanh()
 		int p;
 		cout << "Nhap so luong nhan vien vien ban muon them vao chi nhanh:";
 		cin >> p;
-		for(int j=0;j<p;j++)
+		for (int j = 0; j < p; j++)
 		{
-		string a;
-		bool check = false;
-		cout << "\--Moi nhap MS nhan vien de them vao chi nhanh: ";
-		rewind(stdin);	
-		getline(cin, a);
-		fflush(stdin);
-		int i = 0;
-		for (i = 0; i < list.Size(); i++) {
-			if (list[i]->Get_MSNV() == a) {
-				check = true;
-				break;
+			double a;
+			bool check = false;
+			cout << "\--Moi nhap MS nhan vien de them vao chi nhanh: ";
+			rewind(stdin);
+			cin >> a;
+			fflush(stdin);
+			int i = 0;
+			for (i = 0; i < list.Size(); i++) {
+				if (list[i]->Get_MSNV() == a) {
+					check = true;
+					break;
+				}
 			}
-		}
-		if (check == true)
-		{
-			if (o == 1)
+			if (check == true)
 			{
+				if (o == 1)
+				{
 					if (d1.AddNhanVien(list[i]) == 0) cout << "Nhan vien da ton tai!!!\n";
 					else cout << "Nhan vien da duoc them!!!\n";
-			}
-			else if (o == 2)
-			{
-				
-				int s = 0;
-				if (( d1.checkid(list[i])) == 0)
-				{
-					cout << "Nhan vien da ton tai o chi nhanh khac" << endl;
-					s = 1;
 				}
-				if (s != 1)
+				else if (o == 2)
 				{
-					if (d2.AddNhanVien(list[i]) == 0) cout << "Nhan vien da ton tai!!!\n";
-					else cout << "Nhan vien da duoc them!!!\n";
+
+					int s = 0;
+					if ((d1.checkid(list[i])) == 0)
+					{
+						cout << "Nhan vien da ton tai o chi nhanh khac" << endl;
+						s = 1;
+					}
+					if (s != 1)
+					{
+						if (d2.AddNhanVien(list[i]) == 0) cout << "Nhan vien da ton tai!!!\n";
+						else cout << "Nhan vien da duoc them!!!\n";
+					}
+
 				}
-				
+				else if (o == 3) cout << "Du lieu nhap khong dung !!!" << endl;
 			}
-			else if (o == 3) cout << "Du lieu nhap khong dung !!!" << endl;
-		}
 		}
 		cout << "Ban co muon tiep tuc them nhan vien vao chi nhanh(1-co/2-khong)";
 		int g;
 		cin >> g;
 		if (g != 1) break;
-		}
-		while(true)
-		{ 
-		cout << "Chon chi nhanh de xuat ra danh sach nhan vien"<<endl;
+	}
+	while (true)
+	{
+		cout << "Chon chi nhanh de xuat ra danh sach nhan vien" << endl;
 		cout << "1.Chi nhanh A" << endl;
 		cout << "2.Chi nhanh B" << endl;
 		cout << "===>";
 		int l;
 		cin >> l;
-		if(l==1)	cout << d1;
+		if (l == 1)	cout << d1;
 		else if (l == 2)	cout << d2;
 		cout << "Ban co muon tiep tuc xuat(1-co/2-khong)";
 		int t;
 		cin >> t;
 		if (t != 1) break;
-		}
+	}
 }
 void CongTy::NVDT()
 {
 	DaoTao* d1 = new DaoTao("Cap bac A");
 	DaoTao* d2 = new DaoTao("Cap bac B");
 	DaoTao* d3 = new DaoTao("Cap bac C");
-	cout << "++Lop dao tao\n";
-	cout << "1.Dao tao cap bac A\n";
-	cout << "2.Dao tao cap bac B\n";
-	cout << "3.Dao tao cap bac C\n";
 	while (true)
 	{
-		string a;
-		bool check = false;
-		cout << "\--Moi nhap MS nhan vien de di dao tao: ";
-		rewind(stdin);
-		getline(cin, a);
-		fflush(stdin);
-		int i = 0;
-		for (i = 0; i < list.Size(); i++) {
-			if (list[i]->Get_MSNV() == a) {
-				check = true;
-
-				break;
-			}
-		}
-		cout << "*Vui long chon lop dao tao.\n";
-		int d;
-		rewind(stdin);
-		cout << "->";
-		cin >> d;
-		fflush(stdin);
-		if (check == true)
+		cout << "1.Chon nhan vien di dao tao\n";
+		cout << "2.Xuat ra danh sach tao dao\n";
+		cout << "3.xuat ra bang dao tao\n";
+		cout << "Moi ban nhap lua chon:";
+		int u;
+		cin >> u;
+		if (u == 1)
 		{
-			if (d == 1)
+			cout << "++Lop dao tao\n";
+			cout << "1.Dao tao cap bac A\n";
+			cout << "2.Dao tao cap bac B\n";
+			cout << "3.Dao tao cap bac C\n";
+			cout << "--Nhap so luong nhan vien muon di dao tao:";
+			int r;
+
+			cin >> r;
+			for (int c = 1;c <= r;c++)
 			{
-				if (d1->AddNhanVien(list[i]) == 0) cout << "Nhan vien da ton tai!!!\n";
-				else cout << "Nhan vien da duoc them!!!\n";
-			}
-			else if (d == 2)
-			{
-				if (d2->AddNhanVien(list[i]) == 0) cout << "Nhan vien da ton tai!!!\n";
-				else cout << "Nhan vien da duoc them!!!\n";
-			}
-			else if (d == 3)
-			{
-				if (d3->AddNhanVien(list[i]) == 0) cout << "Nhan vien da ton tai!!!\n";
-				else cout << "Nhan vien da duoc them!!!\n";
+				double a;
+				bool check = false;
+				cout << "\--Moi nhap MS nhan vien thu " << c << " de di dao tao : ";
+				rewind(stdin);
+				cin >> a;
+				fflush(stdin);
+				int i = 0;
+				for (i = 0; i < list.Size(); i++) {
+					if (list[i]->Get_MSNV() == a) {
+						check = true;
+
+						break;
+					}
+				}
+				cout << "*Vui long chon lop dao tao.\n";
+				int d;
+				rewind(stdin);
+				cout << "->";
+				cin >> d;
+				fflush(stdin);
+				if (check == true)
+				{
+					if (d == 1)
+					{
+						if (d1->AddNhanVien(list[i]) == 0) cout << "Nhan vien da ton tai!!!\n";
+						else cout << "Nhan vien da duoc them!!!\n";
+					}
+					else if (d == 2)
+					{
+						if (d2->AddNhanVien(list[i]) == 0) cout << "Nhan vien da ton tai!!!\n";
+						else cout << "Nhan vien da duoc them!!!\n";
+					}
+					else if (d == 3)
+					{
+						if (d3->AddNhanVien(list[i]) == 0) cout << "Nhan vien da ton tai!!!\n";
+						else cout << "Nhan vien da duoc them!!!\n";
+
+					}
+					else
+					{
+						cout << "Vui long chon ( 1 hoac 2 hoac 3 )\n";
+					}
+					//*d1->OutPut();
+					//list[2]->OutPut();
+				}
+				else if (check != true) cout << "Nhan Vien khong ton tai!!!\n";
 
 			}
-			else
-			{
-				cout << "Vui long chon ( 1 hoac 2 hoac 3 )\n";
-			}
-			//*d1->OutPut();
-			//list[2]->OutPut();
 		}
-		else if (check != true) cout << "Nhan Vien khong ton tai!!!\n";
-		int j;
-		cout << "--Tiep tuc them (1-co/2-khong):";
-		rewind(stdin);
-		cin >> j;
-		fflush(stdin);
-		Sleep(700);
-		if (j == 2) break;
-
-	}
-	cout << "++Danh sach dao tao\n";
-	cout << "1.Xuat ra ds nhan vien dao tap cap bac A.\n";
-	cout << "2.Xuat ra ds nhan vien dao tap cap bac B.\n";
-	cout << "3.Xuat ra ds nhan vien dao tap cap bac C.\n";
-	cout << "4.Dung.\n";
-	while (true)
-	{
-		cout << "--Moi ban nhap lua chon:\n";
-		Sleep(700);
-		int y;
-
-		cout << "->";
-		cin >> y;
-		if (y == 1) cout << *d1;
-		else if (y == 2) cout << *d2;
-		else if (y == 3) cout << *d3;
-		else if (y == 4) break;
-		else
+		else if (u == 2)
 		{
-			cout << "Vui long chon ( 1 hoac 2 hoac 3 hoac 4)\n";
-		}
-	}
-	while (true)
-	{
-		cout << "--Nhap ma so nhan vien ban muon xuat ra bang dao tao :";
-		int ms;
-		cin >> ms;
-		cout << list[ms - 1]->GetName() << ":" << *list[ms - 1];
-		Sleep(700);
-		cout << "Tiep tuc xuat (1-co/2-khong):";
-		int k;
-		cin >> k;
-		if (k != 1) break;
+			cout << "++Danh sach dao tao\n";
+			cout << "1.Xuat ra ds nhan vien dao tap cap bac A.\n";
+			cout << "2.Xuat ra ds nhan vien dao tap cap bac B.\n";
+			cout << "3.Xuat ra ds nhan vien dao tap cap bac C.\n";
+			cout << "4.Dung.\n";
+			while (true)
+			{
+				cout << "--Moi ban nhap lua chon:\n";
+				Sleep(700);
+				int y;
 
+				cout << "->";
+				cin >> y;
+				if (y == 1) cout << *d1;
+				else if (y == 2) cout << *d2;
+				else if (y == 3) cout << *d3;
+				else if (y == 4) break;
+				else
+				{
+					cout << "Vui long chon ( 1 hoac 2 hoac 3 hoac 4)\n";
+				}
+			}
+		}
+		else if (u == 3)
+		{
+			while (true)
+			{
+				cout << "--Nhap ma so nhan vien ban muon xuat ra bang dao tao :";
+				int ms;
+				cin >> ms;
+				cout << list[ms - 1]->GetName() << ":" << *list[ms - 1];
+				Sleep(700);
+				cout << "Tiep tuc xuat (1-co/2-khong):";
+				int k;
+				cin >> k;
+				if (k != 1) break;
+
+			}
+		}
+		cout << "++Ban co muon tiep tuc(1-co/2-khong)";
+		int f;
+		cin >> f;
+		if (f == 2) break;
 	}
 }
 void MENU()
 {
-	cout << "\n------------------------------------------------------Do an PBL2------------------------------------------------\n";
-	cout << "\n                                              DE TAI: QUAN LY CONG TY               \n";
-	cout << "\n                                                ......        ...... ";
-	cout << "\n                                           Pham Trung Nguyen = = = HO KY HUY";
-	cout << "\n===========================================================================================================================\n";
-	cout << "\n                                      ....................NHOM 1......................\n\n";
-	cout << " ===========================================================================================================================\n";
-	cout << "\n               1. Doc du lieu tu file INPUT.txt                                       \n";
-	cout << "\n               2. Tinh tong luong va xuat du lieu ra file OUTPUT1.txt                 \n";
-	cout << "\n               3. Sap xep nhan vien theo luong xuat ra file OUTPUT2.txt               \n";
-	cout << "\n               4. Tim kiem nhan vien theo MSNV va xuat ra file OUTPUT3.txt            \n";
-	cout << "\n               5. Them nhan vien vao 1 vi tri bat ky va xuat ra file OUTPUT4.txt      \n";
-	cout << "\n               6. Update nhan vien theo MSNV                                          \n";
-	cout << "\n               7. Delete va xuat ra file OUTPUT5.txt                                  \n";
-	cout << "\n               8. Dao Tao                                                             \n";
-	cout << "\n               9. Chi Nhanh                                                           \n";
-	cout << "\n               9. Thoat                                                               \n";
-	cout << " ===========================================================================================================================\n";
+	cout << "\n\t\t\t\t\t                  ----------------- Do an PBL2 ----------------- ";
+	cout << "\n\t\t\t\t\t                 ||         Giao Vien: Dang Hoai Phuong         ||";
+	cout << "\n\t\t\t\t\t                 ||           DE TAI: QUAN LY CONG TY           ||";
+	cout << "\n\t\t\t\t\t                 ||            ......        ......             ||";
+	cout << "\n\t\t\t\t\t                 ||             Pham Trung Nguyen               ||";
+	cout << "\n\t\t\t\t\t                 ||                 HO Ky Huy                   ||";
+	cout << "\n\t\t\t\t\t                 ||                  ------                     ||";
+	cout << "\n\t\t\t\t\t                  -----------------------------------------------";
+	cout << "\n\n";
+	cout << "\n\t\t\t\t\t      *********************CHUONG TRINH : QUAN LY CONG TY*********************";
+	cout << "\n\t\t\t\t\t      |                         ~~~~~~NHOM 1~~~~~~                           |";
+	cout << "\n\t\t\t\t\t      *----------------------------------------------------------------------*";
+	cout << "\n\t\t\t\t\t      | STT | CHUONG TRINH                                                   |";
+	cout << "\n\t\t\t\t\t      *----------------------------------------------------------------------*";
+	cout << "\n\t\t\t\t\t      |  1  | Doc du lieu tu file INPUT.txt                                  |";
+	cout << "\n\t\t\t\t\t      *----------------------------------------------------------------------*";
+	cout << "\n\t\t\t\t\t      |  2  | Tinh tong luong va xuat du lieu ra file OUTPUT1.txt            |";
+	cout << "\n\t\t\t\t\t      *----------------------------------------------------------------------*";
+	cout << "\n\t\t\t\t\t      |  3  | Sap xep nhan vien theo luong xuat ra file OUTPUT2.txt          |";
+	cout << "\n\t\t\t\t\t      *----------------------------------------------------------------------*";
+	cout << "\n\t\t\t\t\t      |  4  | Tim kiem nhan vien theo MSNV va xuat ra file OUTPUT3.txt       |";
+	cout << "\n\t\t\t\t\t      *----------------------------------------------------------------------*";
+	cout << "\n\t\t\t\t\t      |  5  | Them nhan vien vao 1 vi tri bat ky va xuat ra file OUTPUT4.txt |";
+	cout << "\n\t\t\t\t\t      *----------------------------------------------------------------------*";
+	cout << "\n\t\t\t\t\t      |  6  | Update nhan vien theo MSNV                                     |";
+	cout << "\n\t\t\t\t\t      *----------------------------------------------------------------------*";
+	cout << "\n\t\t\t\t\t      |  7  | Delete va xuat ra file OUTPUT5.txt                             |";
+	cout << "\n\t\t\t\t\t      *----------------------------------------------------------------------*";
+	cout << "\n\t\t\t\t\t      |  8  | Dao Tao                                                        |";
+	cout << "\n\t\t\t\t\t      *----------------------------------------------------------------------*";
+	cout << "\n\t\t\t\t\t      |  9  | Chi Nhanh                                                      |";
+	cout << "\n\t\t\t\t\t      *----------------------------------------------------------------------*";
+	cout << "\n\t\t\t\t\t      |  10 | Thoat                                                          |";
+	cout << "\n\t\t\t\t\t      ************************************************************************\n";
 }
 int KiemTra(string s)
 {
@@ -288,14 +323,14 @@ void CongTy::ThemVaoViTriBatKy(int index)
 	{
 		NVQuanLy* temp = new NVQuanLy;
 		cout << "Nhap thong tin nhan vien muon them: " << endl;
-		string msnv;
+		double msnv;
 		bool check;
 		do
 		{
 			check = true;
 			rewind(stdin);
 			cout << "\nNhap MSSV: ";
-			getline(cin, msnv);
+			cin >> msnv;
 			for (int i = 0; i < list.Size(); i++)
 			{
 				if (list[i]->Get_MSNV() == msnv)
@@ -317,14 +352,14 @@ void CongTy::ThemVaoViTriBatKy(int index)
 	{
 		NVSanXuat* temp = new NVSanXuat;
 		cout << "Nhap thong tin nhan vien muon them: " << endl;
-		string msnv;
+		double msnv;
 		bool check;
 		do
 		{
 			check = true;
 			rewind(stdin);
 			cout << "\nNhap MSSV: ";
-			getline(cin, msnv);
+			cin >> msnv;
 			for (int i = 0; i < list.Size(); i++)
 			{
 				if (list[i]->Get_MSNV() == msnv)
@@ -346,14 +381,14 @@ void CongTy::ThemVaoViTriBatKy(int index)
 	{
 		NVCongNhat* temp = new NVCongNhat;
 		cout << "Nhap thong tin nhan vien muon them: " << endl;
-		string msnv;
+		double msnv;
 		bool check;
 		do
 		{
 			check = true;
 			rewind(stdin);
 			cout << "\nNhap MSSV: ";
-			getline(cin, msnv);
+			cin >> msnv;
 			for (int i = 0; i < list.Size(); i++)
 			{
 				if (list[i]->Get_MSNV() == msnv)
@@ -375,14 +410,14 @@ void CongTy::ThemVaoViTriBatKy(int index)
 	{
 		NVThucTap* temp = new NVThucTap;
 		cout << "Nhap thong tin nhan vien muon them: " << endl;
-		string msnv;
+		double msnv;
 		bool check;
 		do
 		{
 			check = true;
 			rewind(stdin);
 			cout << "\nNhap MSSV: ";
-			getline(cin, msnv);
+			cin >> msnv;
 			for (int i = 0; i < list.Size(); i++)
 			{
 				if (list[i]->Get_MSNV() == msnv)
@@ -433,10 +468,10 @@ void CongTy::SapXepNVTheoLuong()
 }
 void CongTy::TimNVTheoMSNV(fstream& File)
 {
-	string a;
+	double a;
 	bool check = false;
 	cout << "\nMoi nhap nhan vien co ma ban muon tim: ";
-	getline(cin, a);
+	cin >> a;
 	int i = 0;
 	for (i = 0; i < list.Size(); i++)
 	{
@@ -456,7 +491,7 @@ void CongTy::TimNVTheoMSNV(fstream& File)
 		cout << "\nKhong tim thay nhan vien co ma: " << a;
 	}
 }
-int CongTy::IndexOf(string nv)
+int CongTy::IndexOf(double nv)
 {
 	int index = -1;
 	for (int i = 0; i < list.Size(); i++)
@@ -469,7 +504,7 @@ int CongTy::IndexOf(string nv)
 	}
 	return index;
 }
-void CongTy::Update(string& m)
+void CongTy::Update(double& m)
 {
 	int index = IndexOf(m);
 	if (index >= 0)
@@ -499,9 +534,9 @@ void CongTy::Update(string& m)
 			else if (lc == 2)
 			{
 				rewind(stdin);
-				string msnv;
+				double msnv;
 				cout << "\nNhap msnv new: ";
-				getline(cin, msnv);
+				cin >> msnv;
 				list[index]->Set_MSNV(msnv);
 			}
 			else if (lc == 3)
@@ -550,7 +585,7 @@ void CongTy::Update(string& m)
 		cout << "\nKo tim thay nhan vien co ma ban vua nhap!!!";
 	}
 }
-void CongTy::Delete(string m)
+void CongTy::Delete(double m)
 {
 	int index = IndexOf(m);
 	if (index >= 0)
@@ -641,17 +676,17 @@ int main()
 				}
 				case 6:
 				{
-					string y;
+					double y;
 					cout << "\nNhap MSNV ma ban muon update:";
-					getline(cin, y);
+					cin >> y;
 					x.Update(y);
 					break;
 				}
 				case 7:
 				{
-					string m;
+					double m;
 					cout << "\nNhap ma so nhan vien ban muon xoa: ";
-					getline(cin, m);
+					cin >> m;
 					x.Delete(m);
 					File.open("OUTPUT5.txt", ios_base::out);
 					File << "Danh sach nhan vien sau khi DELETE\n";
@@ -665,13 +700,15 @@ int main()
 					x.DocFile(File);
 					File.close();
 					x.NVDT();
+					break;
 				}
 				case 9:
 				{
-					File.open("INPUT.txt", ios_base::in);
+					/*File.open("INPUT.txt", ios_base::in);
 					x.DocFile(File);
-					File.close();
+					File.close();*/
 					x.chinhanh();
+					break;
 				}
 				case 10:
 				{
@@ -688,7 +725,7 @@ int main()
 				if (lc <= 10)
 					break;
 			}
-		} while (lc <= 7);
+		} while (lc <= 9);
 		cout << "\nBan co muon chay lai chuong trinh khong,Neu co hay an (y||Y), neu khong hay an 1 phim bat ky de thoat: ";
 		rewind(stdin);
 		cin >> w;

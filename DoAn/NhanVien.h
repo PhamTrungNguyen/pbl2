@@ -11,7 +11,7 @@ class NhanVien
 {
 protected:
     string Name;
-    string MSNV;
+    double MSNV;
     int CMND;
     string Address;
     string Gender;
@@ -25,9 +25,9 @@ public:
     virtual void InPut();
     virtual void OutPut();
     virtual int TinhLuong();
-    string Get_MSNV();
+    double Get_MSNV();
     void Set_Name(string);
-    void Set_MSNV(string);
+    void Set_MSNV(double);
     void Set_CMND(int);
     void Set_Address(string);
     void Set_Gender(string);
@@ -42,5 +42,5 @@ public:
     int GetCMND();
     string GetAddress();
     double GetSDT();
-    
+
 };

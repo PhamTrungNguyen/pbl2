@@ -18,9 +18,9 @@ public:
 	void OutPut();
 	int TinhLuong();
 	void ThemVaoViTriBatKy(int);
-	int IndexOf(string);
-	void Update(string&);
-	void Delete(string);
+	int IndexOf(double);
+	void Update(double&);
+	void Delete(double);
 	void addNV();
 	void SapXepNVTheoLuong();
 	void TimNVTheoMSNV(fstream&);
